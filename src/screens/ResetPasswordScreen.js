@@ -1,11 +1,10 @@
 import React from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
-import Navigation from "./src/components/Navigation";
+import { SafeAreaView, StyleSheet, Text } from "react-native";
 
-const App = () => {
+const ResetPasswordScreen = () => {
    return (
       <SafeAreaView style={styles.root}>
-         <Navigation/>
+          <Text>Reset Password</Text>
       </SafeAreaView>
    )
 }
@@ -16,4 +15,4 @@ const styles = StyleSheet.create({
    },
 })
 
-export default App;
+export default ResetPasswordScreen;
