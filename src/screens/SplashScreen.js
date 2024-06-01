@@ -1,5 +1,5 @@
 import { React, useEffect, useState  } from "react";
-import { SafeAreaView, View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, Image} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Logo from "../../assets/logo.png"
 
@@ -18,13 +18,11 @@ const SplashScreen = () => {
         setTimeout(() => { 
             loadContent();
         }, 3000)
-    })
+    }, [])
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#FCF3CF', justifyContent: 'center' }}>
             <View style={styles.container}>
-
-            
 
             <Image 
                 source={Logo}
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     title: {
-        fontSize: 17,
+        fontSize: 14,
         fontWeight: '700',
         color: '#1e1e1e',
         marginBottom: 10,

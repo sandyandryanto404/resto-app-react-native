@@ -1,23 +1,16 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import Logo from "../../assets/logo.png";
 
-const LoginScreen = () => {
+const ChangePasswordScreen = () => {
 
   const [form, setForm] = useState({
-    email: '',
-    password: ''
+    current_password: '',
+    new_password: '',
+    new_password_confirm: ''
  });
 
- const navigation = useNavigation();
-
- const onSignInPressed = () => {
-    navigation.navigate('Welcome')
- }
-
- const onForgotPassword = ()=> {
-  navigation.navigate('ForgotPassword')
+ const onUpdatePassword = () => {
+   
  }
 
  return (
@@ -25,65 +18,51 @@ const LoginScreen = () => {
        <SafeAreaView>
         <View style={styles.container}>
 
-            <View style={styles.header}>
-
-              <Image 
-                source={Logo}
-                style={styles.headerImg}
-                alt="Logo"
-              />
-
-              <Text style={styles.title}>Sign in to Resto App</Text>
-
-              <Text style={styles.subtitle}>
-                  Please complete the form below.
-              </Text>
-
-            </View>
+           
 
             <View style={styles.form}>
                 <View style={styles.input}>
-                  <Text style={styles.inputLabel}>Email Address</Text>
-                  <TextInput
-                      autoCapitalize="none"
-                      autoCorrect={false}
-                      keyboardType="email-address"
-                      style={styles.inputControl}
-                      placeholder="john.doe@example.com"
-                      placeholderTextColor="#6b7288"
-                      value={form.email}
-                      onChangeText={email => setForm({... form, email})}
-                  />
+                    <Text style={styles.inputLabel}>Current Password</Text>
+                    <TextInput
+                        secureTextEntry
+                        style={styles.inputControl}
+                        placeholder="**********"
+                        placeholderTextColor="#6b7288"
+                        value={form.current_password}
+                        onChangeText={current_password => setForm({... form, current_password})}
+                    />
                 </View>
                 <View style={styles.input}>
-                  <Text style={styles.inputLabel}>Password</Text>
-                  <TextInput
-                     secureTextEntry
-                     style={styles.inputControl}
-                     placeholder="**********"
-                     placeholderTextColor="#6b7288"
-                     value={form.password}
-                     onChangeText={password => setForm({... form, password})}
-                  />
+                    <Text style={styles.inputLabel}>New Password</Text>
+                    <TextInput
+                        secureTextEntry
+                        style={styles.inputControl}
+                        placeholder="**********"
+                        placeholderTextColor="#6b7288"
+                        value={form.new_password}
+                        onChangeText={new_password => setForm({... form, new_password})}
+                    />
+                </View>
+                <View style={styles.input}>
+                    <Text style={styles.inputLabel}>New Password Confirmation</Text>
+                    <TextInput
+                        secureTextEntry
+                        style={styles.inputControl}
+                        placeholder="**********"
+                        placeholderTextColor="#6b7288"
+                        value={form.new_password_confirm}
+                        onChangeText={new_password_confirm => setForm({... form, new_password_confirm})}
+                    />
                 </View>
                 <View style={styles.formAction}>
-                    <TouchableOpacity onPress={onSignInPressed}>
+                    <TouchableOpacity onPress={onUpdatePassword}>
                       <View style={styles.btn}>
                           <Text style={styles.btnText}>
-                             Sign In
+                              Reset Password
                           </Text>
                       </View>
                     </TouchableOpacity>
                 </View> 
-                <TouchableOpacity
-                   style={{ marginTop: 'auto' }}
-                   onPress={onForgotPassword}
-                >
-                  <Text style={styles.formFooter}>
-                    <Text style={{ textDecorationLine: 'underline' }}>Forgot Your Password ?</Text>
-                  </Text>
-
-                </TouchableOpacity>
             </View>
 
         </View>
@@ -162,7 +141,19 @@ const styles = StyleSheet.create({
       justifyContent:'center',
       paddingVertical: 10,
       paddingHorizontal: 20,
+      marginBottom: 8,
     },
+    btnLogOut: {
+        backgroundColor: '#dc3545',
+        borderRadius: 8,
+        borderWidth: 1,
+        borderColor: '#dc3545',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent:'center',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+      },
     btnText: {
       fontSize: 18,
       fontWeight: '600',
@@ -170,4 +161,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginScreen;
+export default ChangePasswordScreen;
