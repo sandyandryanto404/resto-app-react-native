@@ -5,17 +5,19 @@ import LoginScreen from "../screens/LoginScreen"
 import ForgotPasswordScreen from "../screens/ForgotPasswordScreen"
 import ResetPasswordScreen from "../screens/ResetPasswordScreen"
 import HomeScreen from "../screens/HomeScreen"
+import SplashScreen from "../screens/SplashScreen"
 
 const Stack = createStackNavigator();
 
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
                 <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
                 <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Splash" component={SplashScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
