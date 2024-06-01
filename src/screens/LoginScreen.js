@@ -3,92 +3,91 @@ import { SafeAreaView, View, Text, StyleSheet, Image, TextInput, TouchableOpacit
 import { useNavigation } from "@react-navigation/native";
 import Logo from "../../assets/logo.png"
 
-export default function LoginScreen(){
+const LoginScreen = () => {
 
-   const [form, setForm] = useState({
-      email: '',
-      password: ''
-   });
+  const [form, setForm] = useState({
+    email: '',
+    password: ''
+ });
 
-   const navigation = useNavigation();
+ const navigation = useNavigation();
 
-   const onSignInPressed = () => {
-      navigation.navigate('Home')
-   }
+ const onSignInPressed = () => {
+    navigation.navigate('Home')
+ }
 
-   const onRegister = ()=> {
-    navigation.navigate('Register')
-   }
+ const onForgotPassword = ()=> {
+  navigation.navigate('ForgotPassword')
+ }
 
-   return (
-      <ScrollView style={{ flex: 1, backgroundColor: '#FCF3CF' }}>
-         <SafeAreaView>
-          <View style={styles.container}>
+ return (
+    <ScrollView style={{ flex: 1, backgroundColor: '#FCF3CF' }}>
+       <SafeAreaView>
+        <View style={styles.container}>
 
-              <View style={styles.header}>
+            <View style={styles.header}>
 
-                <Image 
-                  source={Logo}
-                  style={styles.headerImg}
-                  alt="Logo"
-                />
+              <Image 
+                source={Logo}
+                style={styles.headerImg}
+                alt="Logo"
+              />
 
-                <Text style={styles.title}>Sign in to MyApp</Text>
+              <Text style={styles.title}>Sign in to Resto App</Text>
 
-                <Text style={styles.subtitle}>
-                    Get access to your portfolio and more
-                </Text>
+              <Text style={styles.subtitle}>
+                  Please complete the form below.
+              </Text>
 
-              </View>
+            </View>
 
-              <View style={styles.form}>
-                  <View style={styles.input}>
-                    <Text style={styles.inputLabel}>Email Address</Text>
-                    <TextInput
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        keyboardType="email-address"
-                        style={styles.inputControl}
-                        placeholder="john@example.com"
-                        placeholderTextColor="#6b7288"
-                        value={form.email}
-                        onChangeText={email => setForm({... form, email})}
-                    />
-                  </View>
-                  <View style={styles.input}>
-                    <Text style={styles.inputLabel}>Password</Text>
-                    <TextInput
-                       secureTextEntry
-                       style={styles.inputControl}
-                       placeholder="**********"
-                       placeholderTextColor="#6b7288"
-                       value={form.password}
-                       onChangeText={password => setForm({... form, password})}
-                    />
-                  </View>
-                  <View style={styles.formAction}>
-                      <TouchableOpacity onPress={onSignInPressed}>
-                        <View style={styles.btn}>
-                            <Text style={styles.btnText}>Sign In</Text>
-                        </View>
-                      </TouchableOpacity>
-                  </View> 
-                  <TouchableOpacity
-                     style={{ marginTop: 'auto' }}
-                     onPress={onRegister}
-                  >
-                    <Text style={styles.formFooter}>
-                      Don't have an account ? {' '}
-                      <Text style={{ textDecorationLine: 'underline' }}>Sign Up</Text>
-                    </Text>
+            <View style={styles.form}>
+                <View style={styles.input}>
+                  <Text style={styles.inputLabel}>Email Address</Text>
+                  <TextInput
+                      autoCapitalize="none"
+                      autoCorrect={false}
+                      keyboardType="email-address"
+                      style={styles.inputControl}
+                      placeholder="john.doe@example.com"
+                      placeholderTextColor="#6b7288"
+                      value={form.email}
+                      onChangeText={email => setForm({... form, email})}
+                  />
+                </View>
+                <View style={styles.input}>
+                  <Text style={styles.inputLabel}>Password</Text>
+                  <TextInput
+                     secureTextEntry
+                     style={styles.inputControl}
+                     placeholder="**********"
+                     placeholderTextColor="#6b7288"
+                     value={form.password}
+                     onChangeText={password => setForm({... form, password})}
+                  />
+                </View>
+                <View style={styles.formAction}>
+                    <TouchableOpacity onPress={onSignInPressed}>
+                      <View style={styles.btn}>
+                          <Text style={styles.btnText}>Sign In</Text>
+                      </View>
+                    </TouchableOpacity>
+                </View> 
+                <TouchableOpacity
+                   style={{ marginTop: 'auto' }}
+                   onPress={onForgotPassword}
+                >
+                  <Text style={styles.formFooter}>
+                    <Text style={{ textDecorationLine: 'underline' }}>Forgot Your Password ?</Text>
+                  </Text>
 
-                  </TouchableOpacity>
-              </View>
+                </TouchableOpacity>
+            </View>
 
-          </View>
-         </SafeAreaView>
-      </ScrollView>
-   )
+        </View>
+       </SafeAreaView>
+    </ScrollView>
+ )
 
 }
 
@@ -168,3 +167,5 @@ const styles = StyleSheet.create({
       color: '#fff',
     },
 });
+
+export default LoginScreen;
