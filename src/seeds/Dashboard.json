@@ -22,7 +22,7 @@
     },
     {
         "id": 4,
-        "label": "Pending Order",
+        "label": "Total Pending Order",
         "color": "#bb2d3b",
         "icon": "documents",
         "total": 10
