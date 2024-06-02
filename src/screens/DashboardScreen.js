@@ -1,41 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FlatList, SafeAreaView, StyleSheet  } from "react-native";
-import CardDasboard from "../components/CardDasboard"
+import CardDasboard from "../components/CardDasboard";
+import defaultData  from "../seeds/Dashboard.json"
 
 const DashboardScreen = () => {
-    
+
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
-    const defaultData = [
-        {
-            id: 1,
-            label: "Total Sales",
-            color: "#0d6efd",
-            icon: "cart",
-            total: 10,
-        },
-        {
-            id: 2,
-            label: "Total Income",
-            color: "#bb2d3b",
-            icon: "calculator",
-            total: 10,
-        },
-        {
-            id: 3,
-            label: "Total Order",
-            color: "#157347",
-            icon: "documents",
-            total: 10,
-        },
-        {
-            id: 4,
-            label: "Total Menu",
-            color: "#5c636a",
-            icon: "fast-food",
-            total: 10,
-        },
-    ];
 
     useEffect(() => { 
         setLoading(true)

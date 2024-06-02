@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "label": "Total Order",
+        "color": "#0d6efd",
+        "icon": "cart",
+        "total": 100
+    },
+    {
+        "id": 2,
+        "label": "Total Income",
+        "color": "#157347",
+        "icon": "calculator",
+        "total": 125000
+    },
+    {
+        "id": 3,
+        "label": "Total Menu",
+        "color": "#5c636a",
+        "icon": "fast-food",
+        "total": 25
+    },
+    {
+        "id": 4,
+        "label": "Pending Order",
+        "color": "#bb2d3b",
+        "icon": "documents",
+        "total": 10
+    }
+]
