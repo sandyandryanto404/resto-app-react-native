@@ -27,7 +27,7 @@ const WelcomeScreen = () => {
                 name="Dashboard" 
                 component={DashboardScreen} 
                 options={{
-                    headerShown: false,
+                    headerTitleAlign:"center",
                     tabBarLabel:"Dashboard",
                     tabBarIcon: ({ color })=> <Ionicons name="speedometer" size={20} color={color}  />,
                 }}
@@ -36,7 +36,7 @@ const WelcomeScreen = () => {
                 name="Order" 
                 component={OrderScreen} 
                 options={{
-                    headerShown: false,
+                    headerTitleAlign:"center",
                     tabBarLabel:"Order",
                     tabBarIcon: ({ color })=> <Ionicons name="document-text" size={20} color={color}  />,
                     tabBarBadge: pending,
@@ -46,7 +46,7 @@ const WelcomeScreen = () => {
                 name="Menu" 
                 component={MenuScreen} 
                 options={{
-                    headerShown: false,
+                    headerTitleAlign:"center",
                     tabBarLabel:"Menu",
                     tabBarIcon: ({ color })=> <Ionicons name="fast-food" size={20} color={color}  />
                 }}

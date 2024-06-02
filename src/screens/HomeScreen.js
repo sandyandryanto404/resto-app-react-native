@@ -16,8 +16,8 @@ const HomeScreen = () => {
                 name="Welcome"
                 component={WelcomeScreen}
                 options={{
-                    headerTitle:"Dashboard",
                     headerTitleAlign:"center",
+                    headerTitle: "",
                 }}
             />
 

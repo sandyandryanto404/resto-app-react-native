@@ -36,14 +36,6 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       paddingTop: 10,
     },
-    button: {
-      padding: 10,
-      borderRadius: 20,
-      backgroundColor: 'steelblue',
-    },
-    buttonText: {
-      color: 'white'
-    },
   });
 
 export default DashboardScreen;

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Card } from 'react-native-paper';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -14,7 +14,6 @@ const CardDasboard = ({ row }) => {
         maximumFractionDigits: 3,
     });
 
-    
     return (
         <Card style={styleCard}>
             <View style={{ flexDirection: 'row',}}>

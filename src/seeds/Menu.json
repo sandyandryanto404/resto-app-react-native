@@ -1,0 +1,92 @@
+[
+    {
+        "id":1,
+        "name":"Burger",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 3.0,
+        "image":"menu-burger.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":2,
+        "name":"Cappucino",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 2.5,
+        "image":"menu-cappuccino.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":3,
+        "name":"Donut",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 1.0,
+        "image":"menu-donut.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":4,
+        "name":"Expresso",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 2.7,
+        "image":"menu-expresso.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":5,
+        "name":"French Fries",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 2.0,
+        "image":"menu-french-fries.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":6,
+        "name":"Fried Chicken",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 3.0,
+        "image":"menu-fried-chicken.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":7,
+        "name":"Fresh Milk",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 1.5,
+        "image":"menu-milk.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":8,
+        "name":"Orange Juice",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 2.0,
+        "image":"menu-orange-juice.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":9,
+        "name":"Pancake",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 2.3,
+        "image":"menu-pancake.jpg",
+        "protected":1,
+        "status":1
+    },
+    {
+        "id":10,
+        "name":"Sandwitch",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "price": 2.4,
+        "image":"menu-sandwitch.jpg",
+        "protected":1,
+        "status":1
+    }
+]
