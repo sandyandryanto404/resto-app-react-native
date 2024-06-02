@@ -1,33 +1,82 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Dropdown } from 'react-native-element-dropdown';
+import ImageMale from "../../assets/male.png";
+import ImageFemale from "../../assets/female.png"
+import country from 'country-list-js'
 
 const ProfileScreen = () => {
 
   const [form, setForm] = useState({
-    email: '',
-    phone: '',
-    first_name: '',
-    last_name: '',
-    address:'',
-    about_me: '',
- });
+      email: '',
+      gender:'',
+      country: '',
+      phone: '',
+      first_name: '',
+      last_name: '',
+      address:'',
+      about_me: '',
+  });
 
- const navigation = useNavigation();
+  const [countries, setCountries] = useState([]);
+  const [isFocus, setIsFocus] = useState(false);
 
- const onUpdateProfile = () => {
-    navigation.navigate('Home')
- }
- 
- const onLogOut = () => {
-  navigation.navigate('Login')
-}
+  const genders = [
+    { label: 'Male', value: 'M' },
+    { label: 'Female', value: 'F' },
+  ];
+
+  const navigation = useNavigation();
+
+  const onUpdateProfile = () => {
+      navigation.navigate('Home')
+  }
+  
+  const onLogOut = () => {
+    navigation.navigate('Login')
+  }
+  
+  const countryData = () => {
+     let data = []
+     let countries = country.names().sort()
+     countries.map((row) => {
+         let obj = {
+            label: row,
+            value: row
+         }
+         data.push(obj)
+     })
+     return data
+  }
+
+  useEffect(() => { 
+    let countries = countryData()
+    
+    setTimeout(() => { 
+        setCountries(countries)
+    }, 3000)
+    
+  }, [])
 
  return (
     <ScrollView style={{ flex: 1, backgroundColor: '#FCF3CF' }}>
        <SafeAreaView>
         <View style={styles.container}>
             <View style={styles.form}>
+
+                { form.gender !== '' ? <>
+                
+                    <Image 
+                      source={form.gender === 'M' ? ImageMale : ImageFemale}
+                      style={styles.headerImg}
+                      alt="Logo"
+                    />
+                
+                </> : <></> }
+
+              
+
                 <View style={styles.input}>
                   <Text style={styles.inputLabel}>Email Address</Text>
                   <TextInput
@@ -70,6 +119,58 @@ const ProfileScreen = () => {
                       value={form.last_name}
                       onChangeText={last_name => setForm({... form, last_name})}
                   />
+                </View>
+                <View style={styles.input}>
+                  <Text style={styles.inputLabel}>Gender</Text>
+                  
+                  <Dropdown
+                    style={[stylesDropdown.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={stylesDropdown.placeholderStyle}
+                    selectedTextStyle={stylesDropdown.selectedTextStyle}
+                    inputSearchStyle={stylesDropdown.inputSearchStyle}
+                    iconStyle={stylesDropdown.iconStyle}
+                    data={genders}
+                    search
+                    maxHeight={300}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select Gender' : '...'}
+                    searchPlaceholder="Search..."
+                    value={form.gender}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={item => {
+                      setForm({... form, gender: item.value})
+                      setIsFocus(false);
+                    }}
+                  />
+
+                </View>
+                <View style={styles.input}>
+                  <Text style={styles.inputLabel}>Country</Text>
+
+                  <Dropdown
+                    style={[stylesDropdown.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={stylesDropdown.placeholderStyle}
+                    selectedTextStyle={stylesDropdown.selectedTextStyle}
+                    inputSearchStyle={stylesDropdown.inputSearchStyle}
+                    iconStyle={stylesDropdown.iconStyle}
+                    data={countries}
+                    search
+                    maxHeight={300}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select Country' : '...'}
+                    searchPlaceholder="Search..."
+                    value={form.country}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={item => {
+                      setForm({... form, country: item.value})
+                      setIsFocus(false);
+                    }}
+                  />
+                  
                 </View>
                 <View style={styles.input}>
                   <Text style={styles.inputLabel}>Address</Text>
@@ -121,6 +222,30 @@ const ProfileScreen = () => {
 
 }
 
+const stylesDropdown = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+    padding: 16,
+  },
+  dropdown: {
+    height: 50,
+    borderColor: 'gray',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    backgroundColor: "#fff",
+  },
+  placeholderStyle: {
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
+  },
+});
+
 const styles = StyleSheet.create({
     container: {
         padding: 24,
@@ -130,8 +255,8 @@ const styles = StyleSheet.create({
       marginVertical: 36,
     },
     headerImg: {
-      width: 80,
-      height: 80,
+      width: 100,
+      height: 100,
       alignSelf: 'center',
       marginBottom: 36,
     },
