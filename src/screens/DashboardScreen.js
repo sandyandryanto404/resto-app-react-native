@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, SafeAreaView, View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView, Platform  } from "react-native";
+import { FlatList, SafeAreaView, StyleSheet  } from "react-native";
 import CardDasboard from "../components/CardDasboard"
 
 const DashboardScreen = () => {
-
-    const [visible, setVisible] = useState(false);
+    
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const defaultData = [
