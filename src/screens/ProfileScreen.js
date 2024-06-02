@@ -33,10 +33,6 @@ const ProfileScreen = () => {
       navigation.navigate('Home')
   }
   
-  const onLogOut = () => {
-    navigation.navigate('Login')
-  }
-  
   const countryData = () => {
      let data = []
      let countries = country.names().sort()
@@ -206,13 +202,6 @@ const ProfileScreen = () => {
                           </Text>
                       </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={onLogOut}>
-                      <View style={styles.btnLogOut}>
-                          <Text style={styles.btnText}>
-                             Sign Out
-                          </Text>
-                      </View>
-                    </TouchableOpacity>
                 </View> 
             </View>
         </View>
@@ -326,17 +315,6 @@ const styles = StyleSheet.create({
       paddingVertical: 10,
       paddingHorizontal: 20,
       marginBottom: 8,
-    },
-    btnLogOut: {
-      backgroundColor: '#dc3545',
-      borderRadius: 8,
-      borderWidth: 1,
-      borderColor: '#dc3545',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent:'center',
-      paddingVertical: 10,
-      paddingHorizontal: 20,
     },
     btnText: {
       fontSize: 18,
