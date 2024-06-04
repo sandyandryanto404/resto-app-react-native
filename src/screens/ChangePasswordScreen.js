@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from "react-native";
 
 const ChangePasswordScreen = () => {
 
@@ -17,8 +17,6 @@ const ChangePasswordScreen = () => {
     <ScrollView style={{ flex: 1, backgroundColor: '#FCF3CF' }}>
        <SafeAreaView>
         <View style={styles.container}>
-
-           
 
             <View style={styles.form}>
                 <View style={styles.input}>

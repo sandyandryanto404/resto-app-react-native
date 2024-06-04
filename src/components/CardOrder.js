@@ -9,7 +9,7 @@ const Button = ({ onPress, style, icon }) => (
     </TouchableOpacity>
   )
 
-const CardMenu = ({ row, onEdit, onDelete }) => {
+const CardOrder = ({ row, onEdit, onDelete, onDetail }) => {
     
     const getImage = (image) => {
 
@@ -41,39 +41,54 @@ const CardMenu = ({ row, onEdit, onDelete }) => {
     return (
         <Card style={styles.item}>
             <View style={{ flexDirection: 'row',}}>
-                <Image 
-                    source={getImage(row.image)}
-                    style={styles.image}
-                    alt="Menu"
-                />
+                <Feather name="shopping-cart" style={styles.icon} size={60} />
                 <View>
                     <View style={styles.label}>
-                        <Text style={{ marginRight: 32, fontSize: 12, }}>Name</Text>
-                        <Text style={styles.labelMenu}>{' : '}{row.name}</Text>
+                        <Text style={{ marginRight: 32, fontSize: 12, }}>Order Number</Text>
+                        <Text style={styles.labelMenu}>{' : '}{row.order_number}</Text>
                     </View>
                     <View style={styles.label}>
-                        <Text style={{ marginRight: 37, fontSize: 12, }}>Price</Text>
-                        <Text style={styles.labelMenu}>{' : '}{parseFloat(row.price).toFixed(2)}</Text>
+                        <Text style={{ marginRight: 50, fontSize: 12, }}>Order Date</Text>
+                        <Text style={styles.labelMenu}>{' : '}{row.order_date}</Text>
                     </View>
                     <View style={styles.label}>
-                        <Text style={{ marginRight: 30, fontSize: 12, }}>Status</Text>
-                        <Text style={styles.labelMenu}>{' : '}{ parseInt(row.status) === 1 ? 'Active' : 'Inactive' }</Text>
+                        <Text style={{ marginRight: 53, fontSize: 12, }}>Total Item</Text>
+                        <Text style={styles.labelMenu}>{' : '}{row.total_qty}</Text>
                     </View>
                     <View style={styles.label}>
-                        <Text style={{ marginRight: 5, fontSize: 12, }}>Description</Text>
+                        <Text style={{ marginRight: 57, fontSize: 12, }}>Sub Total</Text>
+                        <Text style={styles.labelMenu}>{' : '}{row.subtotal}</Text>
+                    </View>
+                    <View style={styles.label}>
+                        <Text style={{ marginRight: 62, fontSize: 12, }}>Tax (2%)</Text>
+                        <Text style={styles.labelMenu}>{' : '}{row.tax}</Text>
+                    </View>
+                    <View style={styles.label}>
+                        <Text style={{ marginRight: 46, fontSize: 12, }}>Grand Total</Text>
+                        <Text style={styles.labelMenu}>{' : '}{row.grandtotal}</Text>
+                    </View>
+                    <View style={styles.label}>
+                        <Text style={{ marginRight: 73, fontSize: 12, }}>Status</Text>
+                        <Text style={styles.labelMenu}>{' : '}{row.status === 1 ? 'Paid' : 'Draft'}</Text>
+                    </View>
+                    <View style={styles.label}>
+                        <Text style={{ marginRight: 81, fontSize: 12, }}>Note</Text>
                         <Text style={styles.labelMenu}>{' : '}</Text>
                     </View>
                     <View  style={{ flexDirection: 'row', }} >
-                        <Text numberOfLines={5} style={{ fontSize: 11, flex: 1, textAlign: 'justify', }}>{row.description}</Text>
+                        <Text numberOfLines={5} style={{ fontSize: 11, flex: 1, textAlign: 'justify', }}>{row.note}</Text>
                     </View>
                 </View>
             </View>
             <View style={{ flexDirection: 'row', marginTop: 40,}}>
                 <Button
+                    onPress={onDetail}
+                    icon="search" style={{ flex:1,}}/>
+                <Button
                     onPress={onEdit}
-                    icon="edit-2"
-                    style={{ flex:1,}} />
-                <Button onPress={onDelete} icon='trash-2' />
+                    style={{ marginRight: 10 }}
+                    icon="edit-2"/>
+                <Button onPress={onDelete}  icon='trash-2' />
             </View>
         </Card>
       )
@@ -93,13 +108,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row', 
         marginBottom: 5,
     },
-    image: {
-        borderRadius: 12,
-        width: 75,
-        height: 75,
+    icon: {
         alignSelf: 'center',
         marginBottom: 36,
-        borderColor: '#000',
         marginRight: 35,
       },
     item: {
@@ -112,4 +123,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default CardMenu;
+export default CardOrder;

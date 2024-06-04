@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, SafeAreaView, StyleSheet,  TouchableOpacity,  } from "react-native";
-import { Surface } from 'react-native-paper';
+import { FlatList, SafeAreaView, StyleSheet,  TouchableOpacity, Alert, ToastAndroid  } from "react-native";
 import CardMenu from "../components/CardMenu";
 import defaultData  from "../seeds/Menu.json"
-import { Feather } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { useNavigation } from "@react-navigation/native";
 
 const MenuScreen = () => {
 
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
-    const [visible, setVisible] = useState(false);
+    const navigation = useNavigation();
 
     useEffect(() => { 
         setLoading(true)
@@ -19,11 +19,26 @@ const MenuScreen = () => {
     }, [])
 
     const handleEdit = (item) => {
-        console.log(item)
+        navigation.navigate('FormMenuScreen', { menu: item, type: 'edit' })
     }
 
     const handleDelete = (item) => {
-        console.log(item)
+        Alert.alert('Delete Confirmation', 'Are you sure you want to delete this item with name '+item.name+' ?', [
+            {
+              text: 'Cancel',
+              style: 'cancel',
+            },
+            { 
+                text: 'Yes, delete it!', 
+                onPress: () => {
+                    ToastAndroid.show('Success, your item has been deleted !', ToastAndroid.SHORT, ToastAndroid.CENTER);
+                }
+            },
+        ]);
+    }
+
+    const handleCreate = () => {
+        navigation.navigate('FormMenuScreen', { menu: {}, type: 'create' })
     }
 
     return (
@@ -40,11 +55,9 @@ const MenuScreen = () => {
                     />
                 )}
             />
-             <Surface style={styles.header}>
-                <TouchableOpacity style={styles.button} onPress={() => setVisible(true)}>
-                    <Feather name={"plus"} style={{ color: "#fff",  }} size={24} />
-                </TouchableOpacity>
-            </Surface>
+            <TouchableOpacity style={styles.floatingButton} onPress={handleCreate}>
+                <Ionicons name="add-circle" size={80} color="green" />
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
@@ -57,19 +70,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor:'#eee',
     },
-    button: {
-        padding: 10,
-        borderRadius: 100,
-        backgroundColor: '#0b5ed7',
-    },
-    buttonText: {
-        color: 'white',
-    },
     container: {
       flex: 1,
       backgroundColor: '#FCF3CF',
       justifyContent: 'center',
     },
+    floatingButton: {
+        position: 'absolute',
+        width: 100,
+        height: 100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        right: 0,
+        bottom: 0,
+    }
 });
 
 export default MenuScreen;

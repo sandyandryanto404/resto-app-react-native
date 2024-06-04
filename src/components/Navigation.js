@@ -6,6 +6,7 @@ import ForgotPasswordScreen from "../screens/ForgotPasswordScreen"
 import ResetPasswordScreen from "../screens/ResetPasswordScreen"
 import HomeScreen from "../screens/HomeScreen"
 import SplashScreen from "../screens/SplashScreen"
+import FormMenuScreen from "../screens/FormMenuScreen";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ const Navigation = () => {
                 <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Splash" component={SplashScreen} />
+                <Stack.Screen name="FormMenuScreen" component={FormMenuScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )

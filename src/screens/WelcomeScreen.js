@@ -16,7 +16,7 @@ const WelcomeScreen = () => {
 
     return (
         <Tab.Navigator
-            initialRouteName="Dashboard"
+            initialRouteName="Order"
             screenOptions={{
                 tabBarLabelPosition: "below-icon",
                 tabBarShowLabel: true,
