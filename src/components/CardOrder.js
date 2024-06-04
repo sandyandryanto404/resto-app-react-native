@@ -76,7 +76,7 @@ const CardOrder = ({ row, onEdit, onDelete, onDetail }) => {
                         <Text style={styles.labelMenu}>{' : '}</Text>
                     </View>
                     <View  style={{ flexDirection: 'row', }} >
-                        <Text numberOfLines={5} style={{ fontSize: 11, flex: 1, textAlign: 'justify', }}>{row.note}</Text>
+                        <Text numberOfLines={5} style={{ fontSize: 12, flex: 1, textAlign: 'justify', }}>{row.note}</Text>
                     </View>
                 </View>
             </View>
